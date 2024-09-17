@@ -13,6 +13,7 @@
 
 body{
   min-height: 100vh;
+  background-color: black;
 }
 
 a{
@@ -32,4 +33,17 @@ a{
   100%{
     opacity: 1;
   }
+}
+
+.fade-in {
+  animation: fadeIn 3s ease-in-out;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
 }

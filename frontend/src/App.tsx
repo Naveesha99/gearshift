@@ -1,8 +1,20 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home/Home'
+import Profile from './pages/Profile/Profile'
+import Navbar from './components/Navbar'
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <div>App</div>
+    <div>
+      <Router>
+      <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </Router>
+    </div>
   )
 }
 
