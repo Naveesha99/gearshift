@@ -10,15 +10,21 @@ const Navbar = () => {
                 <img src={assets.logo} alt="Logo" className="h-12 w-30" />
             </div>
             <div className="flex space-x-6">
-                <Link to="/" className="text-white hover:text-blue-400">
+                <Link to="/" className="text-white hover:text-purple-800">
                     Home
                 </Link>
-                <Link to="/new-arrivals" className="text-white hover:text-blue-400">
+                <Link to="/new-arrivals" className="text-white hover:text-purple-800">
                     New Arrivals
+                </Link>
+                <Link to="/contact-us" className="text-white hover:text-purple-800">
+                Contact Us
+                </Link>
+                <Link to="/about-us" className="text-white hover:text-purple-800">
+                About Us
                 </Link>
             </div>
             <div className="flex space-x-6">
-                <button className="text-black px-4 py-2 bg-white">
+                <button className="text-black px-4 py-2 bg-purple-800">
                     Login
                 </button>
             </div>
