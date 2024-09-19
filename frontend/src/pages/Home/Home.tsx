@@ -5,7 +5,7 @@ import CarDisplay from '../../components/CarDisplay'
 
 const Home = () => {
   return (
-    <div>
+    <div className='mt-[150px]'>
         <Header />
         <Mid />
         <CarDisplay />

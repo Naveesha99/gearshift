@@ -1,7 +1,10 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const Header = () => {
+
+    const navigate = useNavigate()
     return (
         <div className="relative h-screen w-[95%] mx-auto">
             <div className="flex items-center justify-between gap-8 fade-in mt-[130px]">
@@ -15,10 +18,10 @@ const Header = () => {
                         Discover unbeatable deals on the car of your dreams with <br /> our extensive selection, exceptional customer service, <br /> and hassle-free financing options
                     </p>
                     <div className="flex gap-4">
-                        <button className="border border-purple-800 text-purple-800 bg-transparent font-medium px-[2.3vw] py-[1vw]text-[max(1vw,13px)] w-40">
+                        <button onClick={()=>navigate('/auth/register')} className="border border-white text-white bg-transparent font-medium px-[2.3vw] py-[1vw]text-[max(1vw,13px)] w-40">
                             Register
                         </button>
-                        <button className="border-none text-black font-medium px-[2.3vw] py-[1vw] bg-purple-800 text-[max(1vw,13px)] w-40">
+                        <button className="border-none text-black font-medium px-[2.3vw] py-[1vw] bg-white text-[max(1vw,13px)] w-40">
                             Shop Now
                         </button>
                     </div>

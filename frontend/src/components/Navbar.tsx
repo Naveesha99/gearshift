@@ -24,7 +24,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="flex space-x-6">
-                <button className="text-black px-4 py-2 bg-purple-800">
+                <button className="text-black px-4 py-2 bg-white">
                     Login
                 </button>
             </div>
