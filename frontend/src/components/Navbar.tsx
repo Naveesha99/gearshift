@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets.js'
 
 
 const Navbar = () => {
+
+    const navigate = useNavigate();
     return (
         <nav className="bg-black p-4 flex items-center justify-between fixed top-0 w-full z-10">
             <div className="flex items-center">
@@ -24,7 +26,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="flex space-x-6">
-                <button className="text-black px-4 py-2 bg-white">
+                <button onClick={()=>navigate('/register')} className="text-black px-4 py-2 bg-white">
                     Login
                 </button>
             </div>

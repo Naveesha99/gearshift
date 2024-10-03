@@ -19,18 +19,18 @@ const Register = () => {
             <h2 className="text-3xl font-semibold text-white mb-6">Create an account</h2>
             <p className="text-gray-400 mb-4">
               Already have an account?{' '}
-              <a onClick={()=>setCurrentStatus('login')} href="#" className="text-white hover:underline">
+              <span onClick={()=>setCurrentStatus('login')} className="text-white hover:underline cursor-pointer">
                 Log in
-              </a>
+              </span>
             </p>
           </>
         ) :<>
         <h2 className="text-3xl font-semibold text-white mb-6">Login your account</h2>
         <p className="text-gray-400 mb-4">
-          Have an account?{' '}
-          <a onClick={()=>setCurrentStatus('signup')} href="#" className="text-white hover:underline">
+          Don't have an account?{' '}
+          <span onClick={()=>setCurrentStatus('signup')} className="text-white hover:underline cursor-pointer">
             Sign up
-          </a>
+          </span>
         </p>
       </> }
           
@@ -71,9 +71,9 @@ const Register = () => {
               <input type="checkbox" id="terms" className="mr-2" />
               <label htmlFor="terms" className="text-gray-400">
                 I agree to the{' '}
-                <a href="#" className="text-white hover:underline">
+                <span  className="text-white hover:underline cursor-pointer">
                   Terms & Conditions
-                </a>
+                </span>
               </label>
             </div>
             {currentStatus === 'signup' ? <button

@@ -8,9 +8,8 @@ import Register from './pages/Auth/Register'
 
 const App: React.FC = () => {
   const location = useLocation();
-  
-  // Hide Navbar and Footer on the /auth/register page
-  const hideNavbarAndFooter = location.pathname === '/auth/register';
+
+  const hideNavbarAndFooter = location.pathname === '/register';
 
   return (
     <div>
@@ -18,17 +17,17 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/auth/register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       {!hideNavbarAndFooter && <Footer />}
     </div>
   )
 }
 
-const AppWrapper: React.FC = () => (
+const MainApp: React.FC = () => (
   <Router>
     <App />
   </Router>
 )
 
-export default AppWrapper;
+export default MainApp;
