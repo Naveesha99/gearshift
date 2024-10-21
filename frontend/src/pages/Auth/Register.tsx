@@ -1,11 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { assets } from '../../assets/assets'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Register = () => {
 
-    const [currentStatus, setCurrentStatus] = useState('signup')
-    const navigate = useNavigate();
+  const location = useLocation();
+  const [currentStatus, setCurrentStatus] = useState('signup')
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.state && location.state.status) {
+      setCurrentStatus(location.state.status)
+    }
+  }, [location.state]);
   return (
     <div className="min-h-screen flex items-center justify-center bg-clack">
       <div className="bg-black rounded-lg shadow-lg w-full max-w-4xl flex overflow-hidden">
@@ -13,43 +20,43 @@ const Register = () => {
 
         <div className="w-1/2 p-8 bg-gray-500 bg-opacity-15">
 
-        {currentStatus === 'signup' 
-        ? (
-          <>
-            <h2 className="text-3xl font-semibold text-white mb-6">Create an account</h2>
-            <p className="text-gray-400 mb-4">
-              Already have an account?{' '}
-              <span onClick={()=>setCurrentStatus('login')} className="text-white hover:underline cursor-pointer">
-                Log in
-              </span>
-            </p>
-          </>
-        ) :<>
-        <h2 className="text-3xl font-semibold text-white mb-6">Login your account</h2>
-        <p className="text-gray-400 mb-4">
-          Don't have an account?{' '}
-          <span onClick={()=>setCurrentStatus('signup')} className="text-white hover:underline cursor-pointer">
-            Sign up
-          </span>
-        </p>
-      </> }
-          
+          {currentStatus === 'signup'
+            ? (
+              <>
+                <h2 className="text-3xl font-semibold text-white mb-6">Create an account</h2>
+                <p className="text-gray-400 mb-4">
+                  Already have an account?{' '}
+                  <span onClick={() => setCurrentStatus('login')} className="text-white hover:underline cursor-pointer">
+                    Log in
+                  </span>
+                </p>
+              </>
+            ) : <>
+              <h2 className="text-3xl font-semibold text-white mb-6">Login your account</h2>
+              <p className="text-gray-400 mb-4">
+                Don't have an account?{' '}
+                <span onClick={() => setCurrentStatus('signup')} className="text-white hover:underline cursor-pointer">
+                  Sign up
+                </span>
+              </p>
+            </>}
+
           <form>
 
             {currentStatus === 'signup'
-            ? <div className="flex space-x-4 mb-4">
-            <input
-              type="text"
-              placeholder="First name"
-              className="w-1/2 p-3 rounded-lg bg-gray-800 bg-opacity-15 text-white border border-gray-600"
-            />
-            <input
-              type="text"
-              placeholder="Last name"
-              className="w-1/2 p-3 rounded-lg bg-gray-800 bg-opacity-15 text-white border border-gray-600"
-            />
-          </div> : <></> }
-            
+              ? <div className="flex space-x-4 mb-4">
+                <input
+                  type="text"
+                  placeholder="First name"
+                  className="w-1/2 p-3 rounded-lg bg-gray-800 bg-opacity-15 text-white border border-gray-600"
+                />
+                <input
+                  type="text"
+                  placeholder="Last name"
+                  className="w-1/2 p-3 rounded-lg bg-gray-800 bg-opacity-15 text-white border border-gray-600"
+                />
+              </div> : <></>}
+
             <div className="mb-4">
               <input
                 type="email"
@@ -71,7 +78,7 @@ const Register = () => {
               <input type="checkbox" id="terms" className="mr-2" />
               <label htmlFor="terms" className="text-gray-400">
                 I agree to the{' '}
-                <span  className="text-white hover:underline cursor-pointer">
+                <span className="text-white hover:underline cursor-pointer">
                   Terms & Conditions
                 </span>
               </label>
@@ -86,8 +93,8 @@ const Register = () => {
               className="w-full p-3 bg-white text-black"
             >
               Log in
-            </button> }
-            
+            </button>}
+
           </form>
 
           <div className="mt-6 text-center">
@@ -103,7 +110,7 @@ const Register = () => {
           </div>
         </div>
 
-        
+
         {/* Right Side - Image and Text */}
         <div className="w-1/2 relative">
           <img
@@ -114,8 +121,8 @@ const Register = () => {
           <div className="absolute inset-0 bg-black opacity-60"></div>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6">
             <h1 className="text-3xl font-semibold">Capturing Moments, Creating Memories</h1>
-            <button onClick={()=>navigate("/")} className="absolute flex justify-between gap-2 right-2 top-2 bg-gray-500 bg-opacity-30 p-2 rounded-full text-white text-sm">
-              Back to website <span><img src={assets.arrow} alt=""  className='h-[18px] mt-[1px]'/></span>
+            <button onClick={() => navigate("/")} className="absolute flex justify-between gap-2 right-2 top-2 bg-gray-500 bg-opacity-30 p-2 rounded-full text-white text-sm">
+              Back to website <span><img src={assets.arrow} alt="" className='h-[18px] mt-[1px]' /></span>
             </button>
           </div>
         </div>

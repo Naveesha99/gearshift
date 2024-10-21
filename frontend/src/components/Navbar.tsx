@@ -26,7 +26,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="flex space-x-6">
-                <button onClick={()=>navigate('/register')} className="text-black px-4 py-2 bg-white">
+                <button onClick={()=>navigate('/register', {state: {status: 'login'}})} className="text-black px-4 py-2 bg-white">
                     Login
                 </button>
             </div>
